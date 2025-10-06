@@ -1,0 +1,164 @@
+(() => {
+  const STATE_ATTR = "data-focusreader-active";
+  const STYLE_ID   = "focusreader-style";
+  const BAR_ID     = "focusreader-bar";
+  const CLICK_BLOCKER_ID = "focusreader-click-blocker";
+
+  const isActive = () => document.documentElement.getAttribute(STATE_ATTR) === "1";
+
+  function injectStyle() {
+    if (document.getElementById(STYLE_ID)) return;
+    const style = document.createElement("style");
+    style.id = STYLE_ID;
+    style.textContent = `
+      /* 基础排版：居中更易读 */
+      html, body { background: #fdfdfd !important; }
+      body {
+        margin: 0 !important;
+        padding: 48px 0 64px !important;
+        font-size: 18px !important;
+        line-height: 1.7 !important;
+        color: #111 !important;
+      }
+      /* 隐藏常见干扰：导航、侧栏、评论、广告位等 */
+      header, nav, aside, footer, [role="banner"], [role="navigation"], [role="complementary"],
+      .sidebar, .advert, .ads, .ad, .comments, .comment, .footer, .header, .nav, .share, .cookie, .newsletter {
+        display: none !important;
+      }
+      /* 主体宽度控制 */
+      article, main, .article, .post, .content, .entry, .readable, .article-content, #content {
+        max-width: 860px !important;
+        margin: 0 auto !important;
+        padding: 0 24px !important;
+      }
+      p { margin: 0 0 1em !important; }
+      img, picture, video { max-width: 100% !important; height: auto !important; }
+      /* 顶部控制条 */
+      #${BAR_ID} {
+        position: fixed; top: 0; left: 0; right: 0;
+        height: 40px; display: flex; align-items: center; justify-content: center;
+        background: rgba(0,0,0,.85); color: #fff; font-size: 14px; z-index: 2147483647;
+        -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+      }
+      #${BAR_ID} button {
+        margin-left: 12px; padding: 6px 10px; border: 0; border-radius: 6px; cursor: pointer;
+      }
+      #${BAR_ID} .exit { background: #ffffff; color: #111; }
+      #${BAR_ID} .allowlinks { background: #444; color: #fff; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function createBar() {
+    if (document.getElementById(BAR_ID)) return;
+
+    const bar = document.createElement("div");
+    bar.id = BAR_ID;
+
+    const timerSpan = document.createElement("span");
+    timerSpan.textContent = "专注中 · 剩余 25:00";
+
+    const allowBtn = document.createElement("button");
+    allowBtn.className = "allowlinks";
+    allowBtn.textContent = "允许链接：关";
+
+    const exitBtn = document.createElement("button");
+    exitBtn.className = "exit";
+    exitBtn.textContent = "退出专注";
+
+    bar.append(timerSpan, allowBtn, exitBtn);
+    document.body.appendChild(bar);
+
+    // 简单 25 分钟倒计时
+    let seconds = 25 * 60;
+    const tick = () => {
+      if (!isActive()) return; // 退出后停止
+      seconds = Math.max(0, seconds - 1);
+      const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const s = String(seconds % 60).padStart(2, "0");
+      timerSpan.textContent = `专注中 · 剩余 ${m}:${s}`;
+      if (seconds > 0) setTimeout(tick, 1000);
+    };
+    setTimeout(tick, 1000);
+
+    // 链接开关
+    let allowLinks = false;
+    allowBtn.addEventListener("click", () => {
+      allowLinks = !allowLinks;
+      allowBtn.textContent = `允许链接：${allowLinks ? "开" : "关"}`;
+      document.body.toggleAttribute("data-focusreader-allowlinks", allowLinks);
+    });
+
+    // 退出
+    exitBtn.addEventListener("click", exitFocusMode);
+  }
+
+  function blockClicks() {
+    if (document.getElementById(CLICK_BLOCKER_ID)) return;
+    const blocker = document.createElement("script");
+    blocker.id = CLICK_BLOCKER_ID;
+    blocker.textContent = `
+      (function(){
+        function handler(e){
+          if (document.body.getAttribute('data-focusreader-allowlinks') === 'true') return;
+          let el = e.target;
+          while (el && el !== document.body) {
+            if (el.tagName === 'A' || el.closest('a')) { e.preventDefault(); e.stopPropagation(); return; }
+            el = el.parentElement;
+          }
+        }
+        document.addEventListener('click', handler, true);
+        window.__focusreaderRemoveClickBlocker = () => document.removeEventListener('click', handler, true);
+      })();
+    `;
+    document.documentElement.appendChild(blocker);
+  }
+
+  async function requestFullscreen() {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      }
+    } catch (e) {
+      console.warn("Fullscreen request failed:", e);
+    }
+  }
+
+  function exitFullscreen() {
+    if (document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen().catch(()=>{});
+    }
+  }
+
+  function enterFocusMode() {
+    if (isActive()) return;
+    document.documentElement.setAttribute(STATE_ATTR, "1");
+    injectStyle();
+    createBar();
+    blockClicks();
+    requestFullscreen();
+  }
+
+  function exitFocusMode() {
+    document.documentElement.removeAttribute(STATE_ATTR);
+
+    // 移除样式与控制条
+    document.getElementById(STYLE_ID)?.remove();
+    document.getElementById(BAR_ID)?.remove();
+
+    // 解除点击拦截
+    if (window.__focusreaderRemoveClickBlocker) {
+      try { window.__focusreaderRemoveClickBlocker(); } catch {}
+    }
+
+    exitFullscreen();
+  }
+
+  // Toggle：再次注入时退出
+  if (isActive()) exitFocusMode(); else enterFocusMode();
+
+  // 用户按 ESC 也能退出（备用）
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isActive()) exitFocusMode();
+  }, { once: true });
+})();

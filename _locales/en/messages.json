@@ -1,0 +1,22 @@
+{
+    "appName": {
+        "message": "Read Focus",
+        "description": "The display name for the extension."
+    },
+    "appDescription": {
+        "message": "A Chrome extension that helps you focus on reading by removing distractions.",
+        "description": "Description of what the extension does."
+    },
+    "actionTitle": {
+        "message": "Read Focus",
+        "description": "Title for the browser action."
+    },
+    "enterFocusMode": {
+        "message": "Enter Focus Mode",
+        "description": "Button text for entering focus mode."
+    },
+    "exitFocusMode": {
+        "message": "Exit Focus Mode",
+        "description": "Button text for exiting focus mode."
+    }
+}
