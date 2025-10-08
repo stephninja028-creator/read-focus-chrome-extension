@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>FocusReader</title>
+  <style>
+    body { width: 220px; margin: 12px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    h1 { font-size: 14px; margin: 0 0 8px; }
+    button { width: 100%; padding: 10px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; }
+    #enter { background: #222; color: #fff; }
+    #exit  { background: #eee; margin-top: 8px; }
+    small { color: #666; display: block; margin-top: 10px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <h1>FocusReader</h1>
+  <button id="enter">进入专注模式</button>
+  <button id="exit">退出专注模式</button>
+  <small>进入后：全屏 + 净化排版 + 禁止跳转。按 ESC 或点击“退出专注模式”可恢复。</small>
+  <script src="popup.js"></script>
+</body>
+</html>
