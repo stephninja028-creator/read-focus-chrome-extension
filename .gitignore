@@ -1,9 +1,23 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+
 # Chrome Extension specific
 *.zip
 *.crx
 *.pem
 
-# Node.js
+# Node modules (if any)
 node_modules/
 npm-debug.log*
 yarn-debug.log*

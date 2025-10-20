@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Focus Extension Test Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .highlight {
+            background-color: #fff59d;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .instructions {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Read Focus Extension Test Page</h1>
+    
+    <div class="instructions">
+        <h3>Testing Instructions:</h3>
+        <ol>
+            <li>Make sure the Read Focus extension is installed and enabled</li>
+            <li>Click the extension icon in your browser toolbar</li>
+            <li>Click "进入专注模式" (Enter Focus Mode)</li>
+            <li>Test the highlighting feature by selecting text and using Ctrl/Cmd + H</li>
+            <li>Test the notes feature by clicking the "摘录" (Notes) button</li>
+            <li>Test the export feature by clicking "导出" (Export)</li>
+            <li>Press Escape to exit focus mode</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Sample Article Content</h2>
+        <p>This is a sample article to test the Read Focus extension. You can select any text in this paragraph and use the highlighting feature to mark important sections.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <h3>Key Features to Test:</h3>
+        <ul>
+            <li>Text highlighting with <span class="highlight">yellow background</span></li>
+            <li>Note-taking and excerpt collection</li>
+            <li>Export functionality to Markdown</li>
+            <li>Fullscreen reading mode</li>
+            <li>Distraction-free layout</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Links to Test Blocking</h2>
+        <p>The extension should block these links when in focus mode:</p>
+        <p><a href="https://example.com">Example Link 1</a> | <a href="https://google.com">Example Link 2</a> | <a href="https://github.com">Example Link 3</a></p>
+    </div>
+
+    <div class="test-section">
+        <h2>Keyboard Shortcuts</h2>
+        <p>Test these keyboard shortcuts:</p>
+        <ul>
+            <li><strong>Escape:</strong> Exit focus mode</li>
+            <li><strong>Ctrl/Cmd + H:</strong> Highlight selected text</li>
+            <li><strong>Ctrl/Cmd + Shift + L:</strong> Toggle notes panel</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Buttons</h2>
+        <button onclick="alert('This button should work normally')">Test Button 1</button>
+        <button onclick="alert('This button should also work')">Test Button 2</button>
+        <p><small>These buttons should continue to work even when the extension is active.</small></p>
+    </div>
+
+    <script>
+        // Add some interactive elements for testing
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Read Focus Test Page loaded');
+            console.log('Extension should be available in the browser toolbar');
+        });
+    </script>
+</body>
+</html>

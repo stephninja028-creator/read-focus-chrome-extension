@@ -1,0 +1,912 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		598463D22E5C5B6F003C268C /* read focus Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 598463D12E5C5B6F003C268C /* read focus Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		598463DC2E5C5B6F003C268C /* read focus Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 598463DB2E5C5B6F003C268C /* read focus Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		598463D32E5C5B6F003C268C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 598463972E5C5B6E003C268C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 598463D02E5C5B6F003C268C;
+			remoteInfo = "read focus Extension (iOS)";
+		};
+		598463DD2E5C5B6F003C268C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 598463972E5C5B6E003C268C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 598463DA2E5C5B6F003C268C;
+			remoteInfo = "read focus Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		598464052E5C5B6F003C268C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				598463D22E5C5B6F003C268C /* read focus Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5984640F2E5C5B6F003C268C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				598463DC2E5C5B6F003C268C /* read focus Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		598463B32E5C5B6F003C268C /* read focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "read focus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		598463C52E5C5B6F003C268C /* read focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "read focus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		598463D12E5C5B6F003C268C /* read focus Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "read focus Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		598463DB2E5C5B6F003C268C /* read focus Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "read focus Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		598464002E5C5B6F003C268C /* Exceptions for "Shared (App)" folder in "read focus (iOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"/Localized: Resources/Main.html",
+				Assets.xcassets,
+				Resources/Icon.png,
+				Resources/Script.js,
+				Resources/Style.css,
+				ViewController.swift,
+			);
+			target = 598463B22E5C5B6F003C268C /* read focus (iOS) */;
+		};
+		598464042E5C5B6F003C268C /* Exceptions for "iOS (Extension)" folder in "read focus Extension (iOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 598463D02E5C5B6F003C268C /* read focus Extension (iOS) */;
+		};
+		598464092E5C5B6F003C268C /* Exceptions for "iOS (App)" folder in "read focus (iOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 598463B22E5C5B6F003C268C /* read focus (iOS) */;
+		};
+		5984640A2E5C5B6F003C268C /* Exceptions for "Shared (App)" folder in "read focus (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"/Localized: Resources/Main.html",
+				Assets.xcassets,
+				Resources/Icon.png,
+				Resources/Script.js,
+				Resources/Style.css,
+				ViewController.swift,
+			);
+			target = 598463C42E5C5B6F003C268C /* read focus (macOS) */;
+		};
+		5984640E2E5C5B6F003C268C /* Exceptions for "macOS (Extension)" folder in "read focus Extension (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 598463DA2E5C5B6F003C268C /* read focus Extension (macOS) */;
+		};
+		598464132E5C5B6F003C268C /* Exceptions for "Shared (Extension)" folder in "read focus Extension (iOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/_locales,
+				Resources/background.js,
+				Resources/content.js,
+				Resources/images,
+				Resources/manifest.json,
+				Resources/popup.css,
+				Resources/popup.html,
+				Resources/popup.js,
+				SafariWebExtensionHandler.swift,
+			);
+			target = 598463D02E5C5B6F003C268C /* read focus Extension (iOS) */;
+		};
+		598464142E5C5B6F003C268C /* Exceptions for "Shared (Extension)" folder in "read focus Extension (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/_locales,
+				Resources/background.js,
+				Resources/content.js,
+				Resources/images,
+				Resources/manifest.json,
+				Resources/popup.css,
+				Resources/popup.html,
+				Resources/popup.js,
+				SafariWebExtensionHandler.swift,
+			);
+			target = 598463DA2E5C5B6F003C268C /* read focus Extension (macOS) */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5984639B2E5C5B6F003C268C /* Shared (App) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				598464002E5C5B6F003C268C /* Exceptions for "Shared (App)" folder in "read focus (iOS)" target */,
+				5984640A2E5C5B6F003C268C /* Exceptions for "Shared (App)" folder in "read focus (macOS)" target */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		598463A42E5C5B6F003C268C /* Shared (Extension) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				598464132E5C5B6F003C268C /* Exceptions for "Shared (Extension)" folder in "read focus Extension (iOS)" target */,
+				598464142E5C5B6F003C268C /* Exceptions for "Shared (Extension)" folder in "read focus Extension (macOS)" target */,
+			);
+			explicitFolders = (
+				Resources/_locales,
+				Resources/images,
+				Resources/icons,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		598463B52E5C5B6F003C268C /* iOS (App) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				598464092E5C5B6F003C268C /* Exceptions for "iOS (App)" folder in "read focus (iOS)" target */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		598463C62E5C5B6F003C268C /* macOS (App) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		598463D52E5C5B6F003C268C /* iOS (Extension) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				598464042E5C5B6F003C268C /* Exceptions for "iOS (Extension)" folder in "read focus Extension (iOS)" target */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		598463DF2E5C5B6F003C268C /* macOS (Extension) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5984640E2E5C5B6F003C268C /* Exceptions for "macOS (Extension)" folder in "read focus Extension (macOS)" target */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		598463B02E5C5B6F003C268C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463C22E5C5B6F003C268C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463CE2E5C5B6F003C268C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463D82E5C5B6F003C268C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		598463962E5C5B6E003C268C = {
+			isa = PBXGroup;
+			children = (
+				5984639B2E5C5B6F003C268C /* Shared (App) */,
+				598463A42E5C5B6F003C268C /* Shared (Extension) */,
+				598463B52E5C5B6F003C268C /* iOS (App) */,
+				598463C62E5C5B6F003C268C /* macOS (App) */,
+				598463D52E5C5B6F003C268C /* iOS (Extension) */,
+				598463DF2E5C5B6F003C268C /* macOS (Extension) */,
+				598463B42E5C5B6F003C268C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		598463B42E5C5B6F003C268C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				598463B32E5C5B6F003C268C /* read focus.app */,
+				598463C52E5C5B6F003C268C /* read focus.app */,
+				598463D12E5C5B6F003C268C /* read focus Extension.appex */,
+				598463DB2E5C5B6F003C268C /* read focus Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		598463B22E5C5B6F003C268C /* read focus (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 598464062E5C5B6F003C268C /* Build configuration list for PBXNativeTarget "read focus (iOS)" */;
+			buildPhases = (
+				598463AF2E5C5B6F003C268C /* Sources */,
+				598463B02E5C5B6F003C268C /* Frameworks */,
+				598463B12E5C5B6F003C268C /* Resources */,
+				598464052E5C5B6F003C268C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				598463D42E5C5B6F003C268C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				598463B52E5C5B6F003C268C /* iOS (App) */,
+			);
+			name = "read focus (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "read focus (iOS)";
+			productReference = 598463B32E5C5B6F003C268C /* read focus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		598463C42E5C5B6F003C268C /* read focus (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 598464102E5C5B6F003C268C /* Build configuration list for PBXNativeTarget "read focus (macOS)" */;
+			buildPhases = (
+				598463C12E5C5B6F003C268C /* Sources */,
+				598463C22E5C5B6F003C268C /* Frameworks */,
+				598463C32E5C5B6F003C268C /* Resources */,
+				5984640F2E5C5B6F003C268C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				598463DE2E5C5B6F003C268C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				598463C62E5C5B6F003C268C /* macOS (App) */,
+			);
+			name = "read focus (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "read focus (macOS)";
+			productReference = 598463C52E5C5B6F003C268C /* read focus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		598463D02E5C5B6F003C268C /* read focus Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 598464012E5C5B6F003C268C /* Build configuration list for PBXNativeTarget "read focus Extension (iOS)" */;
+			buildPhases = (
+				598463CD2E5C5B6F003C268C /* Sources */,
+				598463CE2E5C5B6F003C268C /* Frameworks */,
+				598463CF2E5C5B6F003C268C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				598463D52E5C5B6F003C268C /* iOS (Extension) */,
+			);
+			name = "read focus Extension (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "read focus Extension (iOS)";
+			productReference = 598463D12E5C5B6F003C268C /* read focus Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		598463DA2E5C5B6F003C268C /* read focus Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5984640B2E5C5B6F003C268C /* Build configuration list for PBXNativeTarget "read focus Extension (macOS)" */;
+			buildPhases = (
+				598463D72E5C5B6F003C268C /* Sources */,
+				598463D82E5C5B6F003C268C /* Frameworks */,
+				598463D92E5C5B6F003C268C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				598463DF2E5C5B6F003C268C /* macOS (Extension) */,
+			);
+			name = "read focus Extension (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "read focus Extension (macOS)";
+			productReference = 598463DB2E5C5B6F003C268C /* read focus Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		598463972E5C5B6E003C268C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					598463B22E5C5B6F003C268C = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					598463C42E5C5B6F003C268C = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					598463D02E5C5B6F003C268C = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					598463DA2E5C5B6F003C268C = {
+						CreatedOnToolsVersion = 16.4;
+					};
+				};
+			};
+			buildConfigurationList = 5984639A2E5C5B6E003C268C /* Build configuration list for PBXProject "read focus" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 598463962E5C5B6E003C268C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 598463B42E5C5B6F003C268C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				598463B22E5C5B6F003C268C /* read focus (iOS) */,
+				598463C42E5C5B6F003C268C /* read focus (macOS) */,
+				598463D02E5C5B6F003C268C /* read focus Extension (iOS) */,
+				598463DA2E5C5B6F003C268C /* read focus Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		598463B12E5C5B6F003C268C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463C32E5C5B6F003C268C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463CF2E5C5B6F003C268C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463D92E5C5B6F003C268C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		598463AF2E5C5B6F003C268C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463C12E5C5B6F003C268C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463CD2E5C5B6F003C268C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		598463D72E5C5B6F003C268C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		598463D42E5C5B6F003C268C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 598463D02E5C5B6F003C268C /* read focus Extension (iOS) */;
+			targetProxy = 598463D32E5C5B6F003C268C /* PBXContainerItemProxy */;
+		};
+		598463DE2E5C5B6F003C268C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 598463DA2E5C5B6F003C268C /* read focus Extension (macOS) */;
+			targetProxy = 598463DD2E5C5B6F003C268C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		598464022E5C5B6F003C268C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "read focus Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "steph.read-focus.Extension";
+				PRODUCT_NAME = "read focus Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		598464032E5C5B6F003C268C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "read focus Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "steph.read-focus.Extension";
+				PRODUCT_NAME = "read focus Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		598464072E5C5B6F003C268C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C95SUWV9FL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "read focus";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "steph.read-focus";
+				PRODUCT_NAME = "read focus";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		598464082E5C5B6F003C268C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C95SUWV9FL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "read focus";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "steph.read-focus";
+				PRODUCT_NAME = "read focus";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5984640C2E5C5B6F003C268C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/read focus.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C95SUWV9FL;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "read focus Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephninja.readfocus.Extension;
+				PRODUCT_NAME = "read focus Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5984640D2E5C5B6F003C268C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/read focus.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C95SUWV9FL;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "read focus Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephninja.readfocus.Extension;
+				PRODUCT_NAME = "read focus Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		598464112E5C5B6F003C268C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/read focus.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C95SUWV9FL;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "read focus";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephninja.readfocus;
+				PRODUCT_NAME = "read focus";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		598464122E5C5B6F003C268C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/read focus.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C95SUWV9FL;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "read focus";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stephninja.readfocus;
+				PRODUCT_NAME = "read focus";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		598464152E5C5B6F003C268C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		598464162E5C5B6F003C268C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5984639A2E5C5B6E003C268C /* Build configuration list for PBXProject "read focus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				598464152E5C5B6F003C268C /* Debug */,
+				598464162E5C5B6F003C268C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		598464012E5C5B6F003C268C /* Build configuration list for PBXNativeTarget "read focus Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				598464022E5C5B6F003C268C /* Debug */,
+				598464032E5C5B6F003C268C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		598464062E5C5B6F003C268C /* Build configuration list for PBXNativeTarget "read focus (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				598464072E5C5B6F003C268C /* Debug */,
+				598464082E5C5B6F003C268C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5984640B2E5C5B6F003C268C /* Build configuration list for PBXNativeTarget "read focus Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5984640C2E5C5B6F003C268C /* Debug */,
+				5984640D2E5C5B6F003C268C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		598464102E5C5B6F003C268C /* Build configuration list for PBXNativeTarget "read focus (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				598464112E5C5B6F003C268C /* Debug */,
+				598464122E5C5B6F003C268C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 598463972E5C5B6E003C268C /* Project object */;
+}

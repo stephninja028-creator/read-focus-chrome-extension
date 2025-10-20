@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Focus - 无主机权限测试</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .success { color: #28a745; }
+        .warning { color: #ffc107; }
+        .error { color: #dc3545; }
+        .info { color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <h1>Read Focus 扩展 - 无主机权限测试</h1>
+    
+    <div class="test-section">
+        <h2>🔒 权限优化说明</h2>
+        <p class="success">✅ <strong>完全移除主机权限</strong></p>
+        <p class="success">✅ <strong>只使用 activeTab 权限</strong></p>
+        <p class="success">✅ <strong>动态注入脚本</strong></p>
+        <p class="info">📋 权限设置：<code>["storage", "activeTab", "scripting"]</code></p>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 工作原理</h2>
+        <ol>
+            <li><strong>用户点击扩展图标</strong> - 触发 activeTab 权限</li>
+            <li><strong>动态注入脚本</strong> - 通过 scripting API 注入 content.js</li>
+            <li><strong>专注模式激活</strong> - 在当前标签页运行功能</li>
+            <li><strong>无需主机权限</strong> - 只在用户主动操作时工作</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 功能测试步骤</h2>
+        <p>请按以下步骤测试扩展功能：</p>
+        <ol>
+            <li><strong>点击扩展图标</strong> - 这会触发 activeTab 权限</li>
+            <li><strong>进入专注模式</strong> - 页面应该进入全屏专注状态</li>
+            <li><strong>选择文本</strong> - 选择一些文字</li>
+            <li><strong>使用快捷键</strong> - Ctrl/Cmd + H 高亮文本</li>
+            <li><strong>测试摘录功能</strong> - 点击"摘录"按钮</li>
+            <li><strong>退出专注模式</strong> - 按 ESC 或点击"退出"</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>📝 测试内容</h2>
+        <p>这是一段测试文本，用于验证 Read Focus 扩展的功能。</p>
+        <p>你可以选择这段文字，然后使用快捷键 Ctrl/Cmd + H 来高亮它。</p>
+        <p>扩展现在使用更安全的权限模式，只在用户主动操作时工作。</p>
+        
+        <h3>功能特性：</h3>
+        <ul>
+            <li>专注阅读模式</li>
+            <li>文本高亮功能</li>
+            <li>摘录管理</li>
+            <li>导出为 Markdown</li>
+            <li>本地数据存储</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🔒 安全性改进</h2>
+        <p class="success">✅ 完全移除主机权限</p>
+        <p class="success">✅ 只使用 activeTab 权限（用户主动操作时）</p>
+        <p class="success">✅ 动态脚本注入（按需加载）</p>
+        <p class="success">✅ 符合 Chrome Web Store 最严格的安全要求</p>
+        <p class="info">📋 这种权限模式可以避免深入审核</p>
+    </div>
+
+    <div class="test-section">
+        <h2>📋 权限对比</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr style="background: #f8f9fa;">
+                <th style="border: 1px solid #dee2e6; padding: 8px;">权限类型</th>
+                <th style="border: 1px solid #dee2e6; padding: 8px;">修改前</th>
+                <th style="border: 1px solid #dee2e6; padding: 8px;">修改后</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #dee2e6; padding: 8px;">主机权限</td>
+                <td style="border: 1px solid #dee2e6; padding: 8px; color: #dc3545;">❌ host_permissions</td>
+                <td style="border: 1px solid #dee2e6; padding: 8px; color: #28a745;">✅ 已移除</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #dee2e6; padding: 8px;">内容脚本</td>
+                <td style="border: 1px solid #dee2e6; padding: 8px; color: #dc3545;">❌ content_scripts</td>
+                <td style="border: 1px solid #dee2e6; padding: 8px; color: #28a745;">✅ 动态注入</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #dee2e6; padding: 8px;">基础权限</td>
+                <td style="border: 1px solid #dee2e6; padding: 8px; color: #28a745;">✅ storage, activeTab, scripting</td>
+                <td style="border: 1px solid #dee2e6; padding: 8px; color: #28a745;">✅ storage, activeTab, scripting</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        console.log('Read Focus 无主机权限测试页面已加载');
+        console.log('权限已优化：只使用 activeTab 权限');
+        console.log('扩展现在更安全，符合 Chrome Web Store 要求');
+    </script>
+</body>
+</html>

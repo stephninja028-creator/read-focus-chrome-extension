@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Focus - 权限测试页面</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .success { color: #28a745; }
+        .warning { color: #ffc107; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <h1>Read Focus 扩展权限测试</h1>
+    
+    <div class="test-section">
+        <h2>📋 权限优化说明</h2>
+        <p><strong>修改前:</strong> <code>"host_permissions": ["&lt;all_urls&gt;"]</code></p>
+        <p><strong>修改后:</strong> <code>"host_permissions": ["http://*/*", "https://*/*"]</code></p>
+        <p class="success">✅ 移除了宽泛的 &lt;all_urls&gt; 权限</p>
+        <p class="success">✅ 使用更精确的 HTTP/HTTPS 权限</p>
+        <p class="success">✅ 保持功能完整性的同时提高安全性</p>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 当前权限设置</h2>
+        <ul>
+            <li><strong>storage:</strong> 本地存储高亮和设置</li>
+            <li><strong>activeTab:</strong> 访问当前标签页</li>
+            <li><strong>scripting:</strong> 注入脚本功能</li>
+            <li><strong>host_permissions:</strong> HTTP/HTTPS 网站访问</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 功能测试</h2>
+        <p>请按以下步骤测试扩展功能：</p>
+        <ol>
+            <li>点击扩展图标进入专注模式</li>
+            <li>选择文本并使用 Ctrl/Cmd + H 高亮</li>
+            <li>点击"摘录"按钮查看侧边栏</li>
+            <li>测试导出功能</li>
+            <li>按 ESC 退出专注模式</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>📝 测试内容</h2>
+        <p>这是一段测试文本，用于验证 Read Focus 扩展的功能。</p>
+        <p>你可以选择这段文字，然后使用快捷键 Ctrl/Cmd + H 来高亮它。</p>
+        <p>扩展应该能够正常工作，同时权限设置更加安全和精确。</p>
+        
+        <h3>功能特性：</h3>
+        <ul>
+            <li>专注阅读模式</li>
+            <li>文本高亮功能</li>
+            <li>摘录管理</li>
+            <li>导出为 Markdown</li>
+            <li>本地数据存储</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🔒 安全性改进</h2>
+        <p class="success">✅ 移除了对本地文件系统的访问权限</p>
+        <p class="success">✅ 移除了对浏览器内部页面的访问权限</p>
+        <p class="success">✅ 只允许访问 HTTP/HTTPS 网站</p>
+        <p class="success">✅ 符合 Chrome Web Store 安全要求</p>
+    </div>
+
+    <script>
+        // 测试页面功能
+        console.log('Read Focus 权限测试页面已加载');
+        console.log('当前权限设置已优化，移除了 <all_urls> 权限');
+    </script>
+</body>
+</html>
