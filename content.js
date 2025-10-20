@@ -1,41 +1,68 @@
- (() => {
-   const IS_TOP = (window.top === window);
-   const STATE_ATTR = "data-focusreader-active";
-   const STYLE_ID   = "focusreader-style";
-   const BAR_ID     = "focusreader-bar";
+(() => {
+  // Prevent multiple executions
+  if (window.focusReaderExecuted) {
+    console.log("FocusReader already executed, skipping");
+    return;
+  }
+  window.focusReaderExecuted = true;
 
-   // 每页独立存储摘录
-   const STORE_KEY = "focusreader-highlights::" + (location.origin + location.pathname);
-   let highlights = []; // {id,text,context,index}
+  console.log("FocusReader content script starting...");
 
-   // ===== Toggle：已开启则退出 =====
-   if (document.documentElement.getAttribute(STATE_ATTR) === "1") {
-     exitFocusMode();
-     return;
-   }
+  const IS_TOP = (window.top === window);
+  const STATE_ATTR = "data-focusreader-active";
+  const STYLE_ID   = "focusreader-style";
+  const BAR_ID     = "focusreader-bar";
 
-   // ===== 进入专注（只在顶层页面做样式与控制条）=====
-   document.documentElement.setAttribute(STATE_ATTR, "1");
+  // Store highlights per page
+  const STORE_KEY = "focusreader-highlights::" + (location.origin + location.pathname);
+  let highlights = []; // {id,text,context,index}
 
-   if (IS_TOP) {
-     injectStyle();
-     createBar();
-     blockClicks();
+  function initializeFocusMode() {
+    console.log("Initializing focus mode...");
+    
+    // ===== Toggle：已开启则退出 =====
+    if (document.documentElement.getAttribute(STATE_ATTR) === "1") {
+      console.log("Focus mode already active, exiting...");
+      exitFocusMode();
+      return;
+    }
 
-     ensureDrawer();
-     loadHighlightsAndRender(); // 进入时尝试恢复+渲染
-   } else {
-     // 不是顶层 frame 的情况下，不做任何净化，避免误伤图表等
-     return;
-   }
+    // ===== 进入专注（只在顶层页面做样式与控制条）=====
+    console.log("Entering focus mode...");
+    document.documentElement.setAttribute(STATE_ATTR, "1");
+
+    if (IS_TOP) {
+      console.log("Top-level frame, applying focus mode");
+      injectStyle();
+      createBar();
+      blockClicks();
+
+      ensureDrawer();
+      loadHighlightsAndRender(); // 进入时尝试恢复+渲染
+    } else {
+      // 不是顶层 frame 的情况下，不做任何净化，避免误伤图表等
+      console.log("Not top-level frame, skipping focus mode");
+      return;
+    }
+  }
+
+  // Ensure DOM is ready before initializing
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeFocusMode);
+  } else {
+    // DOM is already ready
+    initializeFocusMode();
+  }
 
    // ========= functions =========
 
-   function injectStyle() {
-     if (document.getElementById(STYLE_ID)) return;
-     const style = document.createElement("style");
-     style.id = STYLE_ID;
-     style.textContent = `
+  function injectStyle() {
+    if (document.getElementById(STYLE_ID)) return;
+    
+    try {
+      const style = document.createElement("style");
+      style.id = STYLE_ID;
+      style.textContent = `
        /* 背景与正文排版 */
        html, body { background:#fdfdfd !important; }
        body {
@@ -105,41 +132,48 @@
        .fr-item { padding: 8px 10px; background: #fafafa; border: 1px solid #eee; border-radius: 8px; line-height: 1.5; }
        .fr-item small { color: #888; display:block; margin-top: 6px; }
      `;
-     document.head.appendChild(style);
-   }
+      document.head.appendChild(style);
+      console.log("Styles injected successfully");
+    } catch (e) {
+      console.error("Failed to inject styles:", e);
+    }
+  }
 
-   function createBar() {
-     if (document.getElementById(BAR_ID)) return;
-     const bar = document.createElement("div");
-     bar.id = BAR_ID;
+  function createBar() {
+    if (document.getElementById(BAR_ID)) return;
+    
+    try {
+      const bar = document.createElement("div");
+      bar.id = BAR_ID;
 
      const tip = document.createElement("span");
-     tip.textContent = "专注中";
+     tip.textContent = "Focus Mode Active";
 
      const markBtn = document.createElement("button");
      markBtn.className = "btn";
-     markBtn.textContent = "标黄";
+     markBtn.textContent = "Highlight";
 
      const listBtn = document.createElement("button");
      listBtn.className = "btn";
-     listBtn.textContent = "摘录";
+     listBtn.textContent = "Notes";
 
      const exportBtn = document.createElement("button");
      exportBtn.className = "btn";
-     exportBtn.textContent = "导出";
+     exportBtn.textContent = "Export";
 
      const allowBtn = document.createElement("button");
      allowBtn.className = "allow";
-     allowBtn.textContent = "允许链接：关";
+     allowBtn.textContent = "Allow Links: Off";
 
      const exitBtn = document.createElement("button");
      exitBtn.className = "exit";
-     exitBtn.textContent = "退出";
+     exitBtn.textContent = "Exit";
 
-     bar.append(tip, markBtn, listBtn, exportBtn, allowBtn, exitBtn);
-     document.body.appendChild(bar);
+      bar.append(tip, markBtn, listBtn, exportBtn, allowBtn, exitBtn);
+      document.body.appendChild(bar);
+      console.log("Control bar created successfully");
 
-     // 事件
+      // 事件
      markBtn.addEventListener("click", (e) => {
        e.preventDefault();
        e.stopPropagation();
@@ -163,7 +197,7 @@
      let allowLinks = false;
      allowBtn.addEventListener("click", () => {
        allowLinks = !allowLinks;
-       allowBtn.textContent = `允许链接：${allowLinks ? "开" : "关"}`;
+       allowBtn.textContent = `Allow Links: ${allowLinks ? "On" : "Off"}`;
        document.body.toggleAttribute("data-focusreader-allowlinks", allowLinks);
      });
 
@@ -196,9 +230,13 @@
          toggleDrawer();
          return;
        }
-     };
-     document.addEventListener("keydown", onKeyDown, true);
-   }
+      };
+      document.addEventListener("keydown", onKeyDown, true);
+      
+    } catch (e) {
+      console.error("Failed to create control bar:", e);
+    }
+  }
 
    function blockClicks() {
      // 捕获阶段拦截 A 标签
@@ -240,7 +278,7 @@
      const drawer = document.createElement("aside");
      drawer.id = "fr-drawer";
      drawer.innerHTML = `
-       <header>本页摘录 <span id="fr-count" style="color:#888;font-weight:400"></span></header>
+       <header>Page Notes <span id="fr-count" style="color:#888;font-weight:400"></span></header>
        <div class="list" id="fr-list"></div>
      `;
      document.body.appendChild(drawer);
@@ -255,7 +293,7 @@
        console.error("保存高亮失败:", e);
      }
      const count = document.getElementById("fr-count"); 
-     if (count) count.textContent = \`(\${highlights.length})\`;
+     if (count) count.textContent = `(${highlights.length})`;
    }
 
    function renderList() {
@@ -271,7 +309,7 @@
      highlights.forEach((h, i) => {
        const div = document.createElement("div");
        div.className = "fr-item";
-       div.innerHTML = \`\${escapeHTML(h.text)}<small>#\${i+1}</small>\`;
+       div.innerHTML = `${escapeHTML(h.text)}<small>#${i+1}</small>`;
        div.addEventListener("click", () => {
          console.log("点击了高亮项目:", h.text);
        });
@@ -317,7 +355,7 @@
      
      if (!sel || sel.rangeCount === 0) {
        console.log("没有文本选择");
-       alert("请先选择要高亮的文本");
+       alert("Please select text to highlight first");
        return;
      }
      
@@ -327,14 +365,14 @@
      
      if (range.collapsed) {
        console.log("选择范围已折叠（无选择）");
-       alert("请选择一些文本后再点击标黄");
+       alert("Please select some text before highlighting");
        return;
      }
 
      // 只处理选区落在当前文档（顶层）内
      if (!document.contains(range.commonAncestorContainer)) {
        console.log("选择不在当前文档内");
-       alert("选择的文本不在当前页面范围内");
+       alert("Selected text is not within the current page scope");
        return;
      }
 
@@ -344,14 +382,14 @@
      
      if (!text || text.length < 1) {
        console.log("选择的文本为空");
-       alert("选择的文本为空");
+       alert("Selected text is empty");
        return;
      }
 
      // 检查是否已经高亮过
      if (highlights.find(h => h.text === text)) {
        console.log("文本已被高亮过");
-       alert("这段文本已经被高亮过了");
+       alert("This text has already been highlighted");
        sel.removeAllRanges();
        return;
      }
@@ -360,7 +398,7 @@
      const wrapped = wrapRange(range);
      if (!wrapped) {
        console.log("包裹失败");
-       alert("无法高亮这段文本，请重新选择");
+       alert("Unable to highlight this text, please try selecting again");
        return;
      }
 
@@ -373,7 +411,7 @@
      
      // 给用户反馈
      console.log("已添加高亮:", text);
-     alert("已添加高亮: " + text.substring(0, 50) + (text.length > 50 ? "..." : ""));
+     alert("Highlight added: " + text.substring(0, 50) + (text.length > 50 ? "..." : ""));
    }
 
    function wrapRange(range) {
@@ -415,7 +453,7 @@
      }
      
      // 支持点击删除
-     span.title = "点击移除高亮";
+     span.title = "Click to remove highlight";
      span.addEventListener("click", (e) => {
        e.preventDefault(); e.stopPropagation();
        const t = span.textContent?.trim();
@@ -434,16 +472,16 @@
    }
 
    function exportHighlights() {
-     if (!highlights.length) { alert("还没有摘录内容"); return; }
-     const lines = highlights.map((h, i) => \`\${i+1}. \${h.text}\`);
+     if (!highlights.length) { alert("No notes content yet"); return; }
+     const lines = highlights.map((h, i) => `${i+1}. ${h.text}`);
      const md = [
-       \`## 摘录 - \${document.title}\`,
-       \`> 来源：\${location.href}\`,
+      `## Notes - ${document.title}`,
+      `> Source: ${location.href}`,
        "",
        ...lines
      ].join("\\n");
      copyText(md);
-     alert("已复制到剪贴板（Markdown）");
+     alert("Copied to clipboard (Markdown)");
    }
 
    function copyText(t) {

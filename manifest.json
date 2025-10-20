@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Read Focus",
-  "version": "1.0",
+  "version": "1.4",
   "description": "Let you stay on the current page and finish reading without distractions",
   "default_locale": "en",
   "icons": {
@@ -14,16 +14,8 @@
     "default_title": "Read Focus",
     "default_popup": "popup.html"
   },
-  "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["scripting", "activeTab"],
   "background": {
     "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "run_at": "document_idle"
-    }
-  ]
+  }
 }
