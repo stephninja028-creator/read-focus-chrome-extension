@@ -1,37 +1,51 @@
- (function () {
-   function focusNow() {
-     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-       if (!tabs?.length) return;
-       const tabId = tabs[0].id;
+(function () {
+  function focusNow() {
+    // 先获取当前活动标签页
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (chrome.runtime.lastError) {
+        console.error("Error getting current tab:", chrome.runtime.lastError);
+        alert("Unable to get current tab, please try again");
+        return;
+      }
+      
+      if (!tabs || tabs.length === 0) {
+        console.error("No active tab found");
+        alert("No active tab found, please try again");
+        return;
+      }
+      
+      const currentTab = tabs[0];
+      if (!currentTab.id) {
+        console.error("Current tab has no ID");
+        alert("Current tab is invalid, please try again");
+        return;
+      }
+      
+      // 发送消息给 background script 来处理，包含标签页ID
+      chrome.runtime.sendMessage({ 
+        action: "toggleFocus", 
+        tabId: currentTab.id 
+      }, (response) => {
+        if (chrome.runtime.lastError) {
+          console.error("Error sending message:", chrome.runtime.lastError);
+          alert("Failed to send message, please try again");
+          return;
+        }
+        
+        if (response && response.success) {
+          console.log("Focus mode toggled successfully");
+          // Close popup window
+          window.close();
+        } else {
+          console.error("Failed to toggle focus mode:", response);
+          const errorMsg = response && response.error ? response.error : "Unknown error";
+          alert(`Failed to toggle focus mode: ${errorMsg}`);
+        }
+      });
+    });
+  }
 
-       // ① 先在“顶层 frame”直接执行全屏（继承 popup 点击的用户手势）
-       if (chrome.scripting?.executeScript) {
-         chrome.scripting.executeScript({
-           target: { tabId, allFrames: false }, // 顶层
-           func: () => {
-             // 顶层请求全屏
-             document.documentElement.requestFullscreen?.().catch(console.warn);
-           }
-         }, () => {
-           // ② 全屏触发后，再对所有 frame 注入 content.js 做净化/拦截
-           chrome.scripting.executeScript({
-             target: { tabId, allFrames: true },
-             files: ["content.js"],
-             injectImmediately: true
-           }, () => void 0);
-         });
-       } else {
-         // 兼容旧式 API（MV2）
-         chrome.tabs.executeScript(tabId, {
-           code: "document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();"
-         }, () => {
-           chrome.tabs.executeScript(tabId, { file: "content.js", allFrames: true }, () => void 0);
-         });
-       }
-     });
-   }
-
-   // 进入/退出都走同一套（content.js 内部是 toggle）
-   document.getElementById("enter")?.addEventListener("click", focusNow);
-   document.getElementById("exit")?.addEventListener("click", focusNow);
- })();
+  // 进入/退出都走同一套（content.js 内部是 toggle）
+  document.getElementById("enter")?.addEventListener("click", focusNow);
+  document.getElementById("exit")?.addEventListener("click", focusNow);
+})();
